@@ -1,0 +1,31 @@
+{
+  "author": "SnailJS <developers@snailjs.org>",
+  "name": "sha1-stream",
+  "description": "Node SHA1 stream library",
+  "version": "0.1.0",
+  "homepage": "http://snailjs.org/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snailjs/sha1-stream.git"
+  },
+  "main": "app.js",
+  "keywords": [
+    "sha1",
+    "stream"
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {},
+  "scripts": {
+    "start": "node app",
+    "test": "node ./node_modules/mocha/bin/mocha ./test/*.test.js"
+  },
+  "devDependencies": {
+    "bluebird": "^2.5.2",
+    "chai": "^1.10.0",
+    "graceful-fs": "^3.0.5",
+    "mocha": "^2.0.1",
+    "promisepipe": "^1.0.1"
+  }
+}

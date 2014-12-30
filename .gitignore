@@ -1,0 +1,9 @@
+node_modules
+.idea
+.nodemonignore
+supervise
+npm-debug.log
+tmp
+*.local.*
+/data
+/test/assets/data
