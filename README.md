@@ -1,4 +1,4 @@
-sha1-stream
+sha1-stream [![Build Status](https://travis-ci.org/snailjs/sha1-stream.svg?branch=master)](https://travis-ci.org/snailjs/sha1-stream)
 ===========
 
 Node SHA1 Stream library
