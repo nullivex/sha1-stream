@@ -4,7 +4,7 @@ var SHAStream = require('./helpers/SHAStream')
 
 /**
  * Export the raw class
- * @type {SHA1Stream|exports}
+ * @type {SHAStream}
  */
 exports.SHAStream = SHAStream
 
@@ -12,7 +12,7 @@ exports.SHAStream = SHAStream
 /**
  * Shorthand constructor
  * @param {string} hashType type of hash to create defaults to sha1
- * @return {SHA1Stream}
+ * @return {SHAStream}
  */
 exports.createStream = function(hashType){
   return new SHAStream(hashType)

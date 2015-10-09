@@ -4,13 +4,13 @@ var expect = require('chai').expect
 var fs = require('graceful-fs')
 var promisePipe = require('promisepipe')
 
-var SHA1Stream = require('../helpers/SHAStream')
+var SHAStream = require('../helpers/SHAStream')
 
 var content = require('./helpers/content')
 
 var runTest = function(hashType){
   hashType = hashType || 'sha1'
-  var sniff = new SHA1Stream(hashType)
+  var sniff = new SHAStream(hashType)
   return promisePipe(fs.createReadStream(content.file),sniff)
     .then(function(){
       //check if the hashType value is set
@@ -24,7 +24,7 @@ describe('SHAStream',function(){
   it('should accept a stream and emit a hash',function(){
     var hash
     var hashType = 'sha1'
-    var sniff = new SHA1Stream(hashType)
+    var sniff = new SHAStream(hashType)
     sniff.on('digest',function(result){
       hash = result
     })
