@@ -15,7 +15,7 @@
     "hash stream"
     "stream hash",
     "sha1 stream",
-    "sha256 stream",
+    "sha256 stream"
   ],
   "engines": {
     "node": ">=0.10.0"
