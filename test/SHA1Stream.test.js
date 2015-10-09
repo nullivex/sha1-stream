@@ -4,32 +4,40 @@ var expect = require('chai').expect
 var fs = require('graceful-fs')
 var promisePipe = require('promisepipe')
 
-var SHA1Stream = require('../helpers/SHA1Stream')
+var SHA1Stream = require('../helpers/SHAStream')
 
 var content = require('./helpers/content')
 
-var runTest = function(){
-  var sniff = new SHA1Stream()
+var runTest = function(hashType){
+  hashType = hashType || 'sha1'
+  var sniff = new SHA1Stream(hashType)
   return promisePipe(fs.createReadStream(content.file),sniff)
     .then(function(){
-      expect(sniff.sha1).to.equal(content.sha1)
+      //check if the hashType value is set
+      expect(sniff[hashType]).to.equal(content[hashType])
+      //as of 0.2.0 we set .hash
+      expect(sniff.hash).to.equal(content[hashType])
     })
 }
 
-describe('SHA1Stream',function(){
-  it('should accept a stream and emit a sha1',function(){
-    var sha1
-    var sniff = new SHA1Stream()
-    sniff.on('sha1',function(result){
-      sha1 = result
+describe('SHAStream',function(){
+  it('should accept a stream and emit a hash',function(){
+    var hash
+    var hashType = 'sha1'
+    var sniff = new SHA1Stream(hashType)
+    sniff.on('digest',function(result){
+      hash = result
     })
     return promisePipe(fs.createReadStream(content.file),sniff)
       .then(function(){
-        expect(sha1).to.equal(content.sha1)
+        expect(hash).to.equal(content[hashType])
       })
   })
   it('should accept a stream and store sha1',function(){
     return runTest()
+  })
+  it('should accept a stream and store sha256',function(){
+    return runTest('sha256')
   })
   it('should accept a stream on emit a sha1 1000x',function(){
     var promises = []
