@@ -18,8 +18,9 @@ var SHAStream = function(hashType,options){
   that.sum = crypto.createHash(that.hashType)
   that[that.hashType] = null
   that.on('finish',function(){
-    that[that.hashType] = that.sum.digest('hex')
-    that.emit(hashType,that[that.hashType])
+    that.hash = that.sum.digest('hex')
+    that[that.hashType] = that.hash
+    that.emit('digest',that[that.hashType])
     that.emit(that.hashType,that[that.hashType])
   })
 }
