@@ -21,6 +21,9 @@ fs.createReadStream('myfile.txt').pipe(sniff)
 
 ## Changelog
 
+### 0.2.1
+* Small fix to finish refactoring some files
+
 ### 0.2.0
 * Add support for any hash instead of SHA1. Could pose a package rename.
 
