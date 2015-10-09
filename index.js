@@ -1,18 +1,19 @@
 'use strict';
-var SHA1Stream = require('./helpers/SHA1Stream')
+var SHAStream = require('./helpers/SHAStream')
 
 
 /**
  * Export the raw class
  * @type {SHA1Stream|exports}
  */
-exports.SHA1Stream = SHA1Stream
+exports.SHAStream = SHAStream
 
 
 /**
  * Shorthand constructor
+ * @param {string} hashType type of hash to create defaults to sha1
  * @return {SHA1Stream}
  */
-exports.createStream = function(){
-  return new SHA1Stream()
+exports.createStream = function(hashType){
+  return new SHAStream(hashType)
 }
