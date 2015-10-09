@@ -8,19 +8,22 @@ var util = require('util')
 /**
  * Constructor
  * @constructor
+ * @param {string} hash type defaults to sha1
  * @param {object} options
  */
-var SHA1Stream = function(options){
+var SHAStream = function(hashType,options){
   var that = this
+  that.hashType = hashType || 'sha1'
   Transform.call(that,options)
-  that.shasum = crypto.createHash('sha1')
-  that.sha1 = null
+  that.sum = crypto.createHash(that.hashType)
+  that[that.hashType] = null
   that.on('finish',function(){
-    that.sha1 = that.shasum.digest('hex')
-    that.emit('sha1',that.sha1)
+    that[that.hashType] = that.sum.digest('hex')
+    that.emit(hashType,that[that.hashType])
+    that.emit(that.hashType,that[that.hashType])
   })
 }
-util.inherits(SHA1Stream,Transform)
+util.inherits(SHAStream,Transform)
 
 
 /**
@@ -29,9 +32,9 @@ util.inherits(SHA1Stream,Transform)
  * @param {string} encoding
  * @param {function} done
  */
-SHA1Stream.prototype._transform = function(chunk,encoding,done){
+SHAStream.prototype._transform = function(chunk,encoding,done){
   try {
-    this.shasum.update(chunk)
+    this.sum.update(chunk)
     this.push(chunk)
     done()
   } catch(e){
@@ -42,6 +45,6 @@ SHA1Stream.prototype._transform = function(chunk,encoding,done){
 
 /**
  * Export helper
- * @type {SHA1Stream}
+ * @type {SHAStream}
  */
-module.exports = SHA1Stream
+module.exports = SHAStream
