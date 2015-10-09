@@ -2,7 +2,7 @@
   "author": "SnailJS <developers@snailjs.org>",
   "name": "sha1-stream",
   "description": "Node SHA1 stream library",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "http://snailjs.org/",
   "repository": {
     "type": "git",
@@ -11,7 +11,11 @@
   "main": "app.js",
   "keywords": [
     "sha1",
-    "stream"
+    "sha256",
+    "hash stream"
+    "stream hash",
+    "sha1 stream",
+    "sha256 stream",
   ],
   "engines": {
     "node": ">=0.10.0"
