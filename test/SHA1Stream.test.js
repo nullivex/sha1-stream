@@ -2,8 +2,8 @@
 var P = require('bluebird')
 var expect = require('chai').expect
 var fs = require('graceful-fs')
-var promisePipe = require('promisepipe')
 
+var promisePipe = require('../helpers/promisePipe')
 var SHAStream = require('../helpers/SHAStream')
 
 var content = require('./helpers/content')

@@ -1,9 +1,9 @@
 {
-  "author": "NSC <developers@nullivex.com>",
+  "author": "Nullivex <developers@nullivex.com>",
   "name": "sha1-stream",
   "description": "Node SHA1 stream library",
-  "version": "0.2.2",
-  "homepage": "http://nullivex.com/",
+  "version": "1.0.0",
+  "homepage": "https://wwww.nullivex.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/nullivex/sha1-stream.git"
@@ -26,10 +26,9 @@
     "test": "node ./node_modules/mocha/bin/mocha ./test/*.test.js"
   },
   "devDependencies": {
-    "bluebird": "^3.5.0",
-    "chai": "^4.1.0",
+    "bluebird": "^3.5.1",
+    "chai": "^4.1.2",
     "graceful-fs": "^4.1.11",
-    "mocha": "^3.4.2",
-    "promisepipe": "^1.0.1"
+    "mocha": "^5.2.0"
   }
 }
