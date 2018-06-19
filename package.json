@@ -2,7 +2,7 @@
   "author": "Nullivex <developers@nullivex.com>",
   "name": "sha1-stream",
   "description": "Node SHA1 stream library",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://wwww.nullivex.com/",
   "repository": {
     "type": "git",
