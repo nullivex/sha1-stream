@@ -21,6 +21,10 @@ fs.createReadStream('myfile.txt').pipe(sniff)
 
 ## Changelog
 
+### 1.0.2
+* Update dependencies
+* Update package.json
+
 ### 1.0.1
 * Update `promisePipe` helper
 
